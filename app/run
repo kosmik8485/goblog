@@ -1,0 +1,2 @@
+#!/bin/bash
+docker run -t -i --rm -p 5000:8090 --name my_srv1_run my-srv1

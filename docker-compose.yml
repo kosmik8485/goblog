@@ -1,0 +1,23 @@
+version: '3.2'
+
+services:
+    app:
+        build: 
+            context: ./app
+            dockerfile: Dockerfile
+        environment:
+            PROD: 'false'
+        expose:
+            - "8090"
+    nginx:
+        restart: always
+        container_name: nginx_server
+        build:
+            context: ./nginx
+            dockerfile: Dockerfile
+        depends_on:
+            - app
+        ports:
+            - "0.0.0.0:81:80"
+
+
